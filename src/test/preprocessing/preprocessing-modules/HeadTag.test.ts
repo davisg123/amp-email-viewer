@@ -1,5 +1,5 @@
 import { module as HeadTag } from '../../../preprocessing/preprocessing-modules/HeadTag';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('HeadTag module', () => {
   // tslint:disable:no-any
@@ -10,7 +10,7 @@ describe('HeadTag module', () => {
   });
 
   test('injects into <head> tag', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head>
 <meta charset="utf-8">

@@ -1,5 +1,5 @@
 import { module as RuntimeRewrite } from '../../../preprocessing/preprocessing-modules/RuntimeRewrite';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('RuntimeRewrite module', () => {
   test('has correct name', () => {
@@ -7,7 +7,7 @@ describe('RuntimeRewrite module', () => {
   });
 
   test('rewrites scripts to use RTV pin', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -34,7 +34,7 @@ Hello, world!
   });
 
   test('rewrites scripts to use different CDN', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head>
 <script async src="https://cdn.ampproject.org/v0.js"></script>

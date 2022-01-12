@@ -1,5 +1,5 @@
 import { module as HyperlinkRewrite } from '../../../preprocessing/preprocessing-modules/HyperlinkRewrite';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('HyperlinkRewrite module', () => {
   test('has correct name', () => {
@@ -7,7 +7,7 @@ describe('HyperlinkRewrite module', () => {
   });
 
   test('adds hyperlink attributes', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head></head>
 <body>
@@ -28,7 +28,7 @@ describe('HyperlinkRewrite module', () => {
   });
 
   test('adds hyperlink attributes and changes href', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head></head>
 <body>

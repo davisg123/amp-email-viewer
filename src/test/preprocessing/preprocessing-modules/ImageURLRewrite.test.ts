@@ -1,9 +1,9 @@
 import { module as ImageURLRewrite } from '../../../preprocessing/preprocessing-modules/ImageURLRewrite';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('ImageURLRewrite module', () => {
   test('replaces image URLs with proxy', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head></head>
 <body>
@@ -28,7 +28,7 @@ Hello, world!
   });
 
   test('skips mustache templates', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head></head>
 <body>
@@ -67,7 +67,7 @@ Hello, world!
 <amp-anim src="https://images.example/anim.gif"></amp-anim>
 
 </body></html>`;
-    const doc = parseHTMLDocument(code);
+    const doc = parseHTMLFragment(code);
 
     // tslint:disable:no-any
     ImageURLRewrite.transform(doc, {} as any);

@@ -1,5 +1,5 @@
 import { module as HTMLTag } from '../../../preprocessing/preprocessing-modules/HTMLTag';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('HTMLTag module', () => {
   // tslint:disable:no-any
@@ -10,7 +10,7 @@ describe('HTMLTag module', () => {
   });
 
   test('adds attributes to html tag', () => {
-    const doc = parseHTMLDocument(`<!DOCTYPE html>
+    const doc = parseHTMLFragment(`<!DOCTYPE html>
 <html amp4email>
 <head></head>
 <body>Hello, world!</body>

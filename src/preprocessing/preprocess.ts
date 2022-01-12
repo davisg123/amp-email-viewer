@@ -3,7 +3,7 @@ import {
   validationModules,
   transformingModules,
 } from './preprocessing-modules/index';
-import { parseHTMLDocument, serializeHTML } from '../util';
+import { parseHTMLFragment, serializeHTML } from '../util';
 
 /**
  * Runs the preprocessing modules on the given AMP code.
@@ -18,7 +18,7 @@ export async function preprocessAMP(
   config: Config
 ): Promise<string> {
   const skipSet = new Set(config.skipPreprocessingModules || []);
-  const doc = parseHTMLDocument(amp);
+  const doc = parseHTMLFragment(amp);
 
   const errors = [];
   for (const module of validationModules) {

@@ -1,5 +1,5 @@
 import { module as ElementLimits } from '../../../preprocessing/preprocessing-modules/ElementLimits';
-import { parseHTMLDocument, serializeHTML } from '../../../util';
+import { parseHTMLFragment, serializeHTML } from '../../../util';
 
 describe('SizeCheck module', () => {
   // tslint:disable:no-any
@@ -10,7 +10,7 @@ describe('SizeCheck module', () => {
   });
 
   test('works when within limits', () => {
-    const doc = parseHTMLDocument(`
+    const doc = parseHTMLFragment(`
     <amp-state></amp-state>
     <amp-img></amp-img>
     `);
@@ -20,7 +20,7 @@ describe('SizeCheck module', () => {
   });
 
   test('throws if limit exceeded', () => {
-    const doc = parseHTMLDocument(`
+    const doc = parseHTMLFragment(`
     <amp-state></amp-state>
     <amp-state></amp-state>
     <amp-state></amp-state>

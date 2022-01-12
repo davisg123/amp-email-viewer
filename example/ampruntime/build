@@ -10,8 +10,6 @@ if ! [[ -d repo ]]; then
    git clone --depth 50 --branch "${RUNTIME_RELEASE}" "${GIT_REPO}" repo
 fi
 
-export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-
 cd repo
 git clean -X -d -f
 
